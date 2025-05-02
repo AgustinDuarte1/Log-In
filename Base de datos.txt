@@ -1,0 +1,41 @@
+mysql> create table usuarios(
+    -> id int not null auto_increment,
+    -> nombre_completo varchar(100) not null,
+    -> telefono varchar(30) not null,
+    -> email varchar(50),
+    -> fecha_registro timestamp default now(),
+    -> actualizado_el timestamp default now() on update now(),
+    -> primary key(id));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table barberos(
+    -> id int not null auto_increment,
+    -> nombre varchar(50) not null,
+    -> estado enum('activo', 'inactivo') default 'activo',
+    -> especialidad varchar(50),
+    -> primary key(id));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table servicios(
+    -> id int not null auto_increment,
+    -> nombre_servicio varchar(70) not null,
+    -> precio varchar(15),
+    -> primary key(id));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table turnos(
+    -> id int not null auto_increment,
+    -> id_cliente int not null,
+    -> id_barbero int not null,
+    -> id_servicio int not null,
+    -> fecha_turno timestamp default now() on update now(),
+    -> hora_turno time not null,
+    -> estado enum('pendiente', 'confirmado', 'cancelado', 'realizado') default 'pendiente',
+    -> constraint fk_cliente
+    -> foreign key(id_cliente) references usuarios(id),
+    -> constraint fk_barbero
+    -> foreign key(id_barbero) references barberos(id),
+    -> constraint fk_servicio
+    -> foreign key(id_servicio) references servicios(id),
+    -> primary key(id));
+Query OK, 0 rows affected (0.03 sec)

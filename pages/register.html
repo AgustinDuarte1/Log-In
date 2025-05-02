@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="register.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="form-container">   
+            <h1>Crear cuenta</h1>
+            <p>Crea tu cuenta</p>
+            <form id="register-form">   
+                <label for="usuario" class="sr-only">Usuario</label>
+                <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario">
+                <label for="email" class="sr-only">email</label>
+                <input type="email" name="email" id="email" placeholder="Correo electrónico">
+                <label for="password" class="sr-only">Contraseña</label>
+                <input type="password" name="password" id="password" placeholder="Contraseña">
+                <button class="button" type="submit">Crear usuario</button>
+                <p class="error escondido">Error al iniciar sesión</p>
+                <p class="exito oculto">Usuario creado con éxito</p>
+            </form>
+            <p>¿Ya tienes una cuenta? - <a href="/">Iniciar sesión</a></p>
+        </div>
+    </main>
+</body>
+</html>
